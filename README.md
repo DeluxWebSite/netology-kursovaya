@@ -121,7 +121,7 @@
 
 </details>
 
-### 2.5. [zabbix_agent_pb.yml]()
+### 2.5. [zabbix_agent_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/zabbix_agent_pb.yml)
 
 - добавляет репозиторий zabbix
 - устанавливает zabbix agent на все хосты
@@ -129,7 +129,7 @@
 
 <details>
 <summary> Скриншот(-ы) </summary>
-![установка zabbix-agent](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/zabbix_agent_pb.yml)
+![установка zabbix-agent]()
 </details>
 
 ### 2.6. [elasticsearch_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/elasticsearch_pb.yml)
