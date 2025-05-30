@@ -6,7 +6,7 @@
 
 Ключевая задача — разработать отказоустойчивую инфраструктуру для сайта, включающую мониторинг, сбор логов и резервное копирование основных данных. Инфраструктура должна размещаться в Yandex Cloud.
 
-### 1. Для выполнения задания был написан файл Terraform [main.tf]() для создания следующих ресурсов:
+### 1. Для выполнения задания был написан файл Terraform [main.tf](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/main.tf) для создания следующих ресурсов:
 
 ### 1.1. Виртуальные машины
 
@@ -20,7 +20,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![список вм]()
+![список вм](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/vm.png)
 
 </details>
 
@@ -29,7 +29,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![балансировщик]()
+![балансировщик](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/balancer.png)
 
 </details>
 
@@ -44,7 +44,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![группы безопасности]()
+![группы безопасности](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/group-sg.png)
 
 </details>
 
@@ -62,7 +62,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![Карта сети]()
+![Карта сети](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/network.png)
 
 </details>
 
@@ -71,7 +71,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![Карта сети]()
+![Карта сети](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/mapcloud.png)
 
 </details>
 
@@ -79,11 +79,11 @@
 
 \*Ansible настроен на Bastion host и вся установка происходит с него.
 
-### 2.1. [inventory.ini]()
+### 2.1. [inventory.ini](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/inventory.ini)
 
 - содержит список удаленных хостов для подключения к ним и установки необходимых программ
 
-### 2.2. [ping_pb.yml]() (был добавлен для удобства)
+### 2.2. [ping_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/ping_pb.yml) (был добавлен для удобства)
 
 - проверяет доступность хостов
 
@@ -94,7 +94,7 @@
 
 </details>
 
-### 2.3. [nginx_pb.yml]()
+### 2.3. [nginx_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/nginx_pb.yml)
 
 - устанавливает nginx на две виртуальные машины состоящие в группе web_servers
 - копирует c локального хоста страницу для отображения при обращении на ip адрес балансировщика.
@@ -107,7 +107,7 @@
 
 </details>
 
-### 2.4. [zabbix_pb.yml]()
+### 2.4. [zabbix_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/zabbix_pb.yml)
 
 - добавляет репозиторий zabbix
 - устанавливает на хост zabbix - zabbix server, zabbix agent, mysql, nginx и прочие зависимости
@@ -128,10 +128,10 @@
 
 <details>
 <summary> Скриншот(-ы) </summary>
-![установка zabbix-agent]()
+![установка zabbix-agent](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/zabbix_agent_pb.yml)
 </details>
 
-### 2.6. [elasticsearch_pb.yml]()
+### 2.6. [elasticsearch_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/elasticsearch_pb.yml)
 
 - скачивает и добавляет ключ gpg elasticsearch
 - добавляет репозиторий elasticsearch 8.x
@@ -146,7 +146,7 @@
 
 </details>
 
-### 2.7. [kibana_pb.yml]()
+### 2.7. [kibana_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/kibana_pb.yml)
 
 - скачивает и добавляет ключ gpg elasticsearch
 - добавляет репозиторий elasticsearch 8.x
@@ -164,7 +164,7 @@
 
 </details>
 
-### 2.8. [filebeat_pb.yml]()
+### 2.8. [filebeat_pb.yml](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/ansible/filebeat_pb.yml)
 
 - скачивает и добавляет ключ gpg elasticsearch
 - добавляет репозиторий elasticsearch 8.x
