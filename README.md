@@ -102,8 +102,9 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![установка nginx]()
-![веб страница]()
+![установка nginx](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/nginx-install.png)
+![веб страница](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/web.png)
+![веб страница](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/web2.png)
 
 </details>
 
