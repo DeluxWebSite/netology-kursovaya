@@ -117,7 +117,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![установка zabbix]()
+![установка zabbix](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/zabbix.png)
 
 </details>
 
@@ -158,7 +158,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![установка kibana]()
+![установка kibana](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/kibana.png)
 ![статус kibana]()
 ![подключение kibana]()
 ![веб kibana]()
