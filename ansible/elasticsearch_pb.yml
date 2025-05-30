@@ -4,14 +4,11 @@
   become: yes
 
   tasks:
-    # На момент сдачи работы ключ перестал скачиваться из-за блокировки. Решение ниже.
+    - name: import the elastic apt key
+      ansible.builtin.apt_key:
+        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+        state: present
 
-    # - name: import the elastic apt key
-    #   ansible.builtin.apt_key:
-    #     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-    #     state: present
-
-    # Скаченыный файл с ключом копируется на вм и добавляется.
     - name: copy key file
       copy: src=/home/user/ansible/gpg_key
         dest=/home/user/gpg_key
