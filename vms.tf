@@ -73,7 +73,7 @@ resource "yandex_compute_instance" "nginxserver2" {
 resource "yandex_compute_instance" "zabbix" {
   name        = "zabbix" #Имя ВМ в облачной консоли
   platform_id = "standard-v3"
-  zone        = "ru-central1-b" #зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-d" #зона ВМ должна совпадать с зоной subnet!!!
   hostname = "zabbix"
 
   resources {
@@ -95,7 +95,7 @@ resource "yandex_compute_instance" "zabbix" {
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.subnet-3.id
+    subnet_id          = yandex_vpc_subnet.subnet-4.id
     nat                = true
     ip_address = "192.168.3.33"
     security_group_ids = [yandex_vpc_security_group.zabbix-sg.id]
@@ -147,7 +147,7 @@ resource "yandex_compute_instance" "elastic" {
 resource "yandex_compute_instance" "kibana" {
   name        = "kibana" #Имя ВМ в облачной консоли
   platform_id = "standard-v3"
-  zone        = "ru-central1-b" #зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-d" #зона ВМ должна совпадать с зоной subnet!!!
   hostname = "kibana"
 
   resources {
@@ -169,7 +169,7 @@ resource "yandex_compute_instance" "kibana" {
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.subnet-3.id
+    subnet_id          = yandex_vpc_subnet.subnet-4.id
     nat                = true
     ip_address = "192.168.3.34"
     security_group_ids = [yandex_vpc_security_group.kibana-sg.id]
@@ -184,7 +184,7 @@ resource "yandex_compute_instance" "kibana" {
 resource "yandex_compute_instance" "bastion" {
   name        = "bastion" #Имя ВМ в облачной консоли
   platform_id = "standard-v3"
-  zone        = "ru-central1-b" #зона ВМ должна совпадать с зоной subnet!!!
+  zone        = "ru-central1-d" #зона ВМ должна совпадать с зоной subnet!!!
   hostname = "bastion"
 
   resources {
@@ -206,13 +206,59 @@ resource "yandex_compute_instance" "bastion" {
   }
 
   network_interface {
-    subnet_id          = yandex_vpc_subnet.subnet-3.id
+    subnet_id          = yandex_vpc_subnet.subnet-4.id
     nat                = true
-    ip_address = "192.168.33.33"
+    ip_address = "192.168.5.55"
     security_group_ids = [yandex_vpc_security_group.bastion-sg.id]
   }
 
   metadata = {
     user-data = "${file("cloud-init.yml")}"
   }
+
+  connection {
+    type        = "ssh"
+    user        = "user"
+#    private_key = file("~/.ssh/id_ed25519")
+    host        = self.network_interface[0].nat_ip_address
+  }
+
+  provisioner "file" {
+    source      = "./ansible"
+    destination = "/home/user/"
+  }
+#   provisioner "file" {
+#    source      = "./ansible/filebeat_conf/filebeat.yml"
+#    destination = "/home/user/ansible/filebeat_conf/"
+#  }
+#   provisioner "file" {
+#    source      = "./ansible/group_vars/all_servers"
+#    destination = "/home/user/ansible/group_vars/"
+#  }
+#   provisioner "file" {
+#    source      = "./ansible/my_web_site/index.nginx-debian.html.j2"
+#    destination = "/home/user/ansible/my_web_site/"
+#  }
+
+  provisioner "file" {
+    source      = "~/.ssh"
+    destination = "/home/user/"
+  }
+
+  provisioner "remote-exec" {
+  inline = [
+<<EOT
+chmod =600 ~/.ssh/id_ed25519
+EOT
+    ]
+  }
+
+  provisioner "remote-exec" {
+  inline = [
+<<EOT
+sudo apt install ansible -y
+EOT
+    ]
+  }
+
 }

@@ -4,10 +4,10 @@
   become: yes
 
   tasks:
-    - name: import the elastic apt key
-      ansible.builtin.apt_key:
-        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-        state: present
+    #    - name: import the elastic apt key
+    #      ansible.builtin.apt_key:
+    #        url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    #        state: present
 
     - name: copy key file
       copy: src=/home/user/ansible/gpg_key

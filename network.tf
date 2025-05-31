@@ -139,7 +139,7 @@ resource "yandex_vpc_security_group" "nginx-sg" {
     protocol       = "TCP"
     description    = "ssh in"
     port           = "22"
-    v4_cidr_blocks = ["192.168.33.0/24"]
+    v4_cidr_blocks = ["192.168.5.0/24"]
   }
 
   ingress {
@@ -182,7 +182,7 @@ resource "yandex_vpc_security_group" "zabbix-sg" {
     protocol       = "TCP"
     description    = "ssh in"
     port           = "22"
-    v4_cidr_blocks = ["192.168.33.0/24"]
+    v4_cidr_blocks = ["192.168.5.0/24"]
   }
 
   ingress {
@@ -212,7 +212,7 @@ resource "yandex_vpc_security_group" "elastic-sg" {
     protocol       = "TCP"
     description    = "ssh in"
     port           = "22"
-    v4_cidr_blocks = ["192.168.33.0/24"]
+    v4_cidr_blocks = ["192.168.5.0/24"]
   }
 
   ingress {
@@ -255,7 +255,7 @@ resource "yandex_vpc_security_group" "kibana-sg" {
     protocol       = "TCP"
     description    = "ssh in"
     port           = "22"
-    v4_cidr_blocks = ["192.168.33.0/24"]
+    v4_cidr_blocks = ["192.168.5.0/24"]
   }
 
   ingress {
@@ -334,19 +334,19 @@ resource "yandex_vpc_subnet" "subnet-2" {
 }
 
 //----------ПОДСЕТЬ-3----------
-resource "yandex_vpc_subnet" "subnet-3" {
-  name           = "subnet3"
-  zone           = "ru-central1-b"
-  network_id     = yandex_vpc_network.network-1.id
-  v4_cidr_blocks = ["192.168.3.0/24", "192.168.33.0/24"]
-}
+#resource "yandex_vpc_subnet" "subnet-3" {
+#  name           = "subnet3"
+#  zone           = "ru-central1-b"
+#  network_id     = yandex_vpc_network.network-1.id
+#  v4_cidr_blocks = ["192.168.3.0/24", "192.168.5.0/24"]
+#}
 
 //----------ПОДСЕТЬ-4----------
 resource "yandex_vpc_subnet" "subnet-4" {
   name           = "subnet4"
   zone           = "ru-central1-d"
   network_id     = yandex_vpc_network.network-1.id
-  v4_cidr_blocks = ["192.168.4.0/24"]
+  v4_cidr_blocks = ["192.168.3.0/24", "192.168.4.0/24", "192.168.5.0/24"]
   route_table_id = yandex_vpc_route_table.nginx1-2_elastic.id
 }
 
