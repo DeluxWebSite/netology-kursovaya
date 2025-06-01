@@ -90,7 +90,7 @@
 <details>
 <summary> Скриншот(-ы) </summary>
 
-![пинг]()
+![пинг](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/ping.png)
 
 </details>
 
@@ -118,6 +118,7 @@
 <summary> Скриншот(-ы) </summary>
 
 ![установка zabbix](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/zabbix.png)
+![zabbix](https://github.com/DeluxWebSite/netology-kursovaya/blob/main/screenshots/zabbix-dash.png)
 
 </details>
 

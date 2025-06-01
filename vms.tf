@@ -171,7 +171,7 @@ resource "yandex_compute_instance" "kibana" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet-4.id
     nat                = true
-    ip_address = "192.168.3.34"
+    ip_address = "192.168.3.35"
     security_group_ids = [yandex_vpc_security_group.kibana-sg.id]
   }
 
@@ -227,18 +227,6 @@ resource "yandex_compute_instance" "bastion" {
     source      = "./ansible"
     destination = "/home/user/"
   }
-#   provisioner "file" {
-#    source      = "./ansible/filebeat_conf/filebeat.yml"
-#    destination = "/home/user/ansible/filebeat_conf/"
-#  }
-#   provisioner "file" {
-#    source      = "./ansible/group_vars/all_servers"
-#    destination = "/home/user/ansible/group_vars/"
-#  }
-#   provisioner "file" {
-#    source      = "./ansible/my_web_site/index.nginx-debian.html.j2"
-#    destination = "/home/user/ansible/my_web_site/"
-#  }
 
   provisioner "file" {
     source      = "~/.ssh"
